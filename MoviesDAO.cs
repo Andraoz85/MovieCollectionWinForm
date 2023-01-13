@@ -77,6 +77,26 @@ namespace MovieCollectionWinForm
             return returnThese;
         }
 
+        public int addOneMovie(Movie movie)
+        {
+            //connect to the mysql server
+            MySqlConnection connection = new MySqlConnection(connectionString);
+            connection.Open();
+
+            //define the sql statement to fetch all movies
+            MySqlCommand command = new MySqlCommand("INSERT INTO movies (title,year,imdb_rating) VALUES (@movietitle, @releaseyear, @imdbrating)", connection);
+
+
+            command.Parameters.AddWithValue("@movietitle", movie.MovieTitle);
+            command.Parameters.AddWithValue("@releaseyear", movie.MovieYear);
+            command.Parameters.AddWithValue("@imdbrating", movie.MovieRating);
+
+            int newRows = command.ExecuteNonQuery();
+            connection.Close();
+
+
+            return newRows;
+        }
     }
 
 }
