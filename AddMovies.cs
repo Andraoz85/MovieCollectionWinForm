@@ -14,7 +14,7 @@
             {
                 MovieTitle = txt_movieName.Text,
                 MovieYear = Int32.Parse(txt_releaseYear.Text),
-                MovieRating = float.Parse(txt_releaseYear.Text)
+                MovieRating = float.Parse(txt_imdbRating.Text)
             };
 
             MoviesDAO moviesDAO = new MoviesDAO();

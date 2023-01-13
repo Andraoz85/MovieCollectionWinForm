@@ -86,7 +86,6 @@ namespace MovieCollectionWinForm
             //define the sql statement to fetch all movies
             MySqlCommand command = new MySqlCommand("INSERT INTO movies (title,year,imdb_rating) VALUES (@movietitle, @releaseyear, @imdbrating)", connection);
 
-
             command.Parameters.AddWithValue("@movietitle", movie.MovieTitle);
             command.Parameters.AddWithValue("@releaseyear", movie.MovieYear);
             command.Parameters.AddWithValue("@imdbrating", movie.MovieRating);
