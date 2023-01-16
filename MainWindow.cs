@@ -34,6 +34,8 @@ namespace MovieCollectionWinForm
         private void button3_Click(object sender, EventArgs e)
         {
             var addMovies = new AddMovies();
+            addMovies.Closed += (s, args) => this.Close();
+            this.Hide();
             addMovies.Show();
         }
     }
