@@ -36,6 +36,7 @@
             this.txt_movieName = new System.Windows.Forms.TextBox();
             this.label2 = new System.Windows.Forms.Label();
             this.label1 = new System.Windows.Forms.Label();
+            this.returnBtnClick = new System.Windows.Forms.Button();
             this.groupBox1.SuspendLayout();
             this.SuspendLayout();
             // 
@@ -113,11 +114,22 @@
             this.label1.TabIndex = 0;
             this.label1.Text = "Movie Ttitle";
             // 
+            // returnBtnClick
+            // 
+            this.returnBtnClick.Location = new System.Drawing.Point(638, 390);
+            this.returnBtnClick.Name = "returnBtnClick";
+            this.returnBtnClick.Size = new System.Drawing.Size(150, 48);
+            this.returnBtnClick.TabIndex = 1;
+            this.returnBtnClick.Text = "<-- Return";
+            this.returnBtnClick.UseVisualStyleBackColor = true;
+            this.returnBtnClick.Click += new System.EventHandler(this.returnBtnClick_Click);
+            // 
             // AddMovies
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 20F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(800, 450);
+            this.Controls.Add(this.returnBtnClick);
             this.Controls.Add(this.groupBox1);
             this.Name = "AddMovies";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
@@ -138,5 +150,6 @@
         private TextBox txt_movieName;
         private Label label2;
         private Label label3;
+        private Button returnBtnClick;
     }
 }

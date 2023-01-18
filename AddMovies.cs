@@ -21,5 +21,12 @@
             int result = moviesDAO.addOneMovie(movie);
             MessageBox.Show(result + "new row(s) inserted");
         }
+        private void returnBtnClick_Click(object sender, EventArgs e)
+        {
+            var mainWindow = new MainWindow();
+            mainWindow.Closed += (s, args) => this.Close();
+            this.Hide();
+            mainWindow.Show();
+        }
     }
 }
