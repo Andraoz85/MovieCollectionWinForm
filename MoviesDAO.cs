@@ -14,26 +14,35 @@ namespace MovieCollectionWinForm
 
             //connect to the mysql server
             MySqlConnection connection = new MySqlConnection(connectionString);
-            connection.Open();
 
             //define the sql statement to fetch all movies
             MySqlCommand command = new MySqlCommand("SELECT * FROM movies", connection);
-
-            using (MySqlDataReader reader = command.ExecuteReader())
+            try
             {
-                while (reader.Read())
+                connection.Open();
+
+                using (MySqlDataReader reader = command.ExecuteReader())
                 {
-                    Movie a = new Movie
+                    while (reader.Read())
                     {
-                        ID = reader.GetInt32(0),
-                        MovieTitle = reader.GetString(1),
-                        MovieYear = reader.GetInt32(2),
-                        MovieRating = reader.GetFloat(3)
-                    };
-                    returnThese.Add(a);
+                        Movie a = new Movie
+                        {
+                            ID = reader.GetInt32(0),
+                            MovieTitle = reader.GetString(1),
+                            MovieYear = reader.GetInt32(2),
+                            MovieRating = reader.GetFloat(3)
+                        };
+                        returnThese.Add(a);
+                    }
                 }
+                connection.Close();
             }
-            connection.Close();
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.Message);
+            }
+
+
 
 
             return returnThese;
@@ -61,14 +70,14 @@ namespace MovieCollectionWinForm
             {
                 while (reader.Read())
                 {
-                    Movie a = new Movie
+                    Movie m = new Movie
                     {
                         ID = reader.GetInt32(0),
                         MovieTitle = reader.GetString(1),
                         MovieYear = reader.GetInt32(2),
                         MovieRating = reader.GetFloat(3)
                     };
-                    returnThese.Add(a);
+                    returnThese.Add(m);
                 }
             }
             connection.Close();
@@ -95,6 +104,41 @@ namespace MovieCollectionWinForm
 
 
             return newRows;
+        }
+
+
+        public List<Actor> getActorForMovie(int moviesid)
+        {
+            //start with an empty list
+            List<Actor> returnThese = new List<Actor>();
+
+            //connect to the mysql server
+            MySqlConnection connection = new MySqlConnection(connectionString);
+            connection.Open();
+
+            //define the sql statement to fetch all movies
+            MySqlCommand command = new MySqlCommand();
+
+            command.CommandText = "SELECT * FROM actors WHERE id = @moviesid";
+            command.Parameters.AddWithValue("@moviesid", moviesid);
+            command.Connection = connection;
+
+            using (MySqlDataReader reader = command.ExecuteReader())
+            {
+                while (reader.Read())
+                {
+                    Actor actor = new Actor
+                    {
+                        ID = reader.GetInt32(0),
+                        Name = reader.GetString(1)
+                    };
+                    returnThese.Add(actor);
+                }
+            }
+            connection.Close();
+
+
+            return returnThese;
         }
     }
 

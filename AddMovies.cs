@@ -9,17 +9,26 @@
 
         public void button1_Click(object sender, EventArgs e)
         {
-            // add a new item to the database
-            Movie movie = new Movie
+            try
             {
-                MovieTitle = txt_movieName.Text,
-                MovieYear = Int32.Parse(txt_releaseYear.Text),
-                MovieRating = float.Parse(txt_imdbRating.Text)
-            };
+                // add a new item to the database
+                Movie movie = new Movie
+                {
+                    MovieTitle = txt_movieName.Text,
+                    MovieYear = Int32.Parse(txt_releaseYear.Text),
+                    MovieRating = float.Parse(txt_imdbRating.Text)
+                };
 
-            MoviesDAO moviesDAO = new MoviesDAO();
-            int result = moviesDAO.addOneMovie(movie);
-            MessageBox.Show(result + "new row(s) inserted");
+                MoviesDAO moviesDAO = new MoviesDAO();
+                int result = moviesDAO.addOneMovie(movie);
+                MessageBox.Show(result + "new row(s) inserted");
+            }
+            catch (Exception ex)
+            {
+                // handle the exception
+                MessageBox.Show("Error: " + ex.Message);
+            }
+
         }
         private void returnBtnClick_Click(object sender, EventArgs e)
         {
