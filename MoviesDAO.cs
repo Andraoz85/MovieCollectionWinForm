@@ -107,7 +107,7 @@ namespace MovieCollectionWinForm
         }
 
 
-        public List<Actor> getActorForMovie(int moviesid)
+        public List<Actor> getActorForMovie(int id)
         {
             //start with an empty list
             List<Actor> returnThese = new List<Actor>();
@@ -116,11 +116,10 @@ namespace MovieCollectionWinForm
             MySqlConnection connection = new MySqlConnection(connectionString);
             connection.Open();
 
-            //define the sql statement to fetch all movies
             MySqlCommand command = new MySqlCommand();
 
-            command.CommandText = "SELECT * FROM actors WHERE id = @moviesid";
-            command.Parameters.AddWithValue("@moviesid", moviesid);
+            command.CommandText = "SELECT * FROM mha WHERE id = @id";
+            command.Parameters.AddWithValue("@id", id);
             command.Connection = connection;
 
             using (MySqlDataReader reader = command.ExecuteReader())
