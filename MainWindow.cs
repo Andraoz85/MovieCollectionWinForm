@@ -51,16 +51,12 @@ namespace MovieCollectionWinForm
             MoviesDAO moviesDAO = new MoviesDAO();
             //connect the list to the grid view control
             actorBindingSource.DataSource = moviesDAO.getActorForMovie((int)dataGridView.Rows[rowClicked].Cells[0].Value);
-
             dataGridView2.DataSource = actorBindingSource;
 
             genreBindingSource.DataSource = moviesDAO.getGenreForMovie((int)dataGridView.Rows[rowClicked].Cells[0].Value);
-
             dataGridView3.DataSource = genreBindingSource;
 
-
             directorBindingSource.DataSource = moviesDAO.getDirectorForMovie((int)dataGridView.Rows[rowClicked].Cells[0].Value);
-
             dataGridView4.DataSource = directorBindingSource;
         }
 
