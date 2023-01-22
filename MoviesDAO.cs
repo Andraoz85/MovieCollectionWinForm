@@ -172,6 +172,39 @@ namespace MovieCollectionWinForm
 
             return returnThese;
         }
+
+        public List<Director> getDirectorForMovie(int directorID)
+        {
+            //start with an empty list
+            List<Director> returnThese = new List<Director>();
+
+            //connect to the mysql server
+            MySqlConnection connection = new MySqlConnection(connectionString);
+            connection.Open();
+
+            //define the sql statement to fetch all movies
+            MySqlCommand command = new MySqlCommand();
+            command.CommandText = "SELECT * FROM movie_directors WHERE id = @directorID";
+            command.Parameters.AddWithValue("@directorID", directorID);
+            command.Connection = connection;
+
+            using (MySqlDataReader reader = command.ExecuteReader())
+            {
+                while (reader.Read())
+                {
+                    Director d = new Director
+                    {
+                        ID = reader.GetInt32(0),
+                        Name = reader.GetString(1)
+                    };
+                    returnThese.Add(d);
+                }
+            }
+            connection.Close();
+
+
+            return returnThese;
+        }
     }
 
 }
