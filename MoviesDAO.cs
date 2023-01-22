@@ -139,6 +139,39 @@ namespace MovieCollectionWinForm
 
             return returnThese;
         }
+
+        public List<Genre> getGenreForMovie(int genreID)
+        {
+            //start with an empty list
+            List<Genre> returnThese = new List<Genre>();
+
+            //connect to the mysql server
+            MySqlConnection connection = new MySqlConnection(connectionString);
+            connection.Open();
+
+            //define the sql statement to fetch all genres
+            MySqlCommand command = new MySqlCommand();
+            command.CommandText = "SELECT * FROM movie_genres WHERE id = @genreID";
+            command.Parameters.AddWithValue("@genreID", genreID);
+            command.Connection = connection;
+
+            using (MySqlDataReader reader = command.ExecuteReader())
+            {
+                while (reader.Read())
+                {
+                    Genre g = new Genre
+                    {
+                        ID = reader.GetInt32(0),
+                        Name = reader.GetString(1)
+                    };
+                    returnThese.Add(g);
+                }
+            }
+            connection.Close();
+
+
+            return returnThese;
+        }
     }
 
 }

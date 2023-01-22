@@ -4,6 +4,8 @@ namespace MovieCollectionWinForm
     {
         BindingSource movieBindingSource = new BindingSource();
         BindingSource actorBindingSource = new BindingSource();
+        BindingSource genreBindingSource = new BindingSource();
+
 
         public MainWindow()
         {
@@ -50,6 +52,12 @@ namespace MovieCollectionWinForm
             actorBindingSource.DataSource = moviesDAO.getActorForMovie((int)dataGridView.Rows[rowClicked].Cells[0].Value);
 
             dataGridView2.DataSource = actorBindingSource;
+
+            genreBindingSource.DataSource = moviesDAO.getGenreForMovie((int)dataGridView.Rows[rowClicked].Cells[0].Value);
+
+            dataGridView3.DataSource = genreBindingSource;
         }
+
+
     }
 }
