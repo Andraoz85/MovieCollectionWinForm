@@ -60,6 +60,18 @@ namespace MovieCollectionWinForm
             dataGridView4.DataSource = directorBindingSource;
         }
 
+        private void btn_deleteMovie_Click(object sender, EventArgs e)
+        {
+            int rowClicked = dataGridView1.CurrentRow.Index;
+            MessageBox.Show("You clicked row " + rowClicked);
+            int movieID = (int)dataGridView1.Rows[rowClicked].Cells[0].Value;
+            MessageBox.Show("Movie ID: " + movieID + " has been deleted");
 
+            MoviesDAO moviesDAO = new MoviesDAO();
+
+            int result = moviesDAO.DeleteMovie(movieID);
+            MessageBox.Show("Result " + result);
+
+        }
     }
 }

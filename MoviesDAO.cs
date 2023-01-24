@@ -205,6 +205,24 @@ namespace MovieCollectionWinForm
 
             return returnThese;
         }
+
+        internal int DeleteMovie(int movieID)
+        {
+            //connect to the mysql server
+            MySqlConnection connection = new MySqlConnection(connectionString);
+            connection.Open();
+
+            //define the sql statement to fetch all movies
+            MySqlCommand command = new MySqlCommand("DELETE FROM movies WHERE id = @movieID", connection);
+
+            command.Parameters.AddWithValue("@movieID", movieID);
+
+            int result = command.ExecuteNonQuery();
+            connection.Close();
+
+
+            return result;
+        }
     }
 
 }

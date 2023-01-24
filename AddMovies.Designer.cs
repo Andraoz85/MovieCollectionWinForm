@@ -29,6 +29,23 @@
         private void InitializeComponent()
         {
             this.groupBox1 = new System.Windows.Forms.GroupBox();
+            this.checkBoxWar = new System.Windows.Forms.CheckBox();
+            this.checkBoxThriller = new System.Windows.Forms.CheckBox();
+            this.checkBoxSciFi = new System.Windows.Forms.CheckBox();
+            this.checkBoxRomance = new System.Windows.Forms.CheckBox();
+            this.checkBoxMusical = new System.Windows.Forms.CheckBox();
+            this.checkBoxHorror = new System.Windows.Forms.CheckBox();
+            this.checkBoxFantasy = new System.Windows.Forms.CheckBox();
+            this.checkBoxDrama = new System.Windows.Forms.CheckBox();
+            this.checkBoxCrime = new System.Windows.Forms.CheckBox();
+            this.checkBoxComedy = new System.Windows.Forms.CheckBox();
+            this.checkBoxBiography = new System.Windows.Forms.CheckBox();
+            this.checkBoxAnimation = new System.Windows.Forms.CheckBox();
+            this.checkBoxAdventure = new System.Windows.Forms.CheckBox();
+            this.checkBoxAction = new System.Windows.Forms.CheckBox();
+            this.txt_directorName = new System.Windows.Forms.TextBox();
+            this.label5 = new System.Windows.Forms.Label();
+            this.label4 = new System.Windows.Forms.Label();
             this.label3 = new System.Windows.Forms.Label();
             this.button1 = new System.Windows.Forms.Button();
             this.txt_imdbRating = new System.Windows.Forms.TextBox();
@@ -37,23 +54,6 @@
             this.label2 = new System.Windows.Forms.Label();
             this.label1 = new System.Windows.Forms.Label();
             this.returnBtnClick = new System.Windows.Forms.Button();
-            this.label4 = new System.Windows.Forms.Label();
-            this.label5 = new System.Windows.Forms.Label();
-            this.txt_directorName = new System.Windows.Forms.TextBox();
-            this.checkBoxAction = new System.Windows.Forms.CheckBox();
-            this.checkBoxAdventure = new System.Windows.Forms.CheckBox();
-            this.checkBoxAnimation = new System.Windows.Forms.CheckBox();
-            this.checkBoxBiography = new System.Windows.Forms.CheckBox();
-            this.checkBoxComedy = new System.Windows.Forms.CheckBox();
-            this.checkBoxCrime = new System.Windows.Forms.CheckBox();
-            this.checkBoxDrama = new System.Windows.Forms.CheckBox();
-            this.checkBoxFantasy = new System.Windows.Forms.CheckBox();
-            this.checkBoxHorror = new System.Windows.Forms.CheckBox();
-            this.checkBoxMusical = new System.Windows.Forms.CheckBox();
-            this.checkBoxRomance = new System.Windows.Forms.CheckBox();
-            this.checkBoxSciFi = new System.Windows.Forms.CheckBox();
-            this.checkBoxThriller = new System.Windows.Forms.CheckBox();
-            this.checkBoxWar = new System.Windows.Forms.CheckBox();
             this.groupBox1.SuspendLayout();
             this.SuspendLayout();
             // 
@@ -90,6 +90,171 @@
             this.groupBox1.TabStop = false;
             this.groupBox1.Text = "Add Movie";
             // 
+            // checkBoxWar
+            // 
+            this.checkBoxWar.AutoSize = true;
+            this.checkBoxWar.Location = new System.Drawing.Point(616, 266);
+            this.checkBoxWar.Name = "checkBoxWar";
+            this.checkBoxWar.Size = new System.Drawing.Size(57, 24);
+            this.checkBoxWar.TabIndex = 25;
+            this.checkBoxWar.Text = "War";
+            this.checkBoxWar.UseVisualStyleBackColor = true;
+            // 
+            // checkBoxThriller
+            // 
+            this.checkBoxThriller.AutoSize = true;
+            this.checkBoxThriller.Location = new System.Drawing.Point(499, 266);
+            this.checkBoxThriller.Name = "checkBoxThriller";
+            this.checkBoxThriller.Size = new System.Drawing.Size(77, 24);
+            this.checkBoxThriller.TabIndex = 24;
+            this.checkBoxThriller.Text = "Thriller";
+            this.checkBoxThriller.UseVisualStyleBackColor = true;
+            // 
+            // checkBoxSciFi
+            // 
+            this.checkBoxSciFi.AutoSize = true;
+            this.checkBoxSciFi.Location = new System.Drawing.Point(616, 236);
+            this.checkBoxSciFi.Name = "checkBoxSciFi";
+            this.checkBoxSciFi.Size = new System.Drawing.Size(67, 24);
+            this.checkBoxSciFi.TabIndex = 23;
+            this.checkBoxSciFi.Text = "Sci-Fi";
+            this.checkBoxSciFi.UseVisualStyleBackColor = true;
+            // 
+            // checkBoxRomance
+            // 
+            this.checkBoxRomance.AutoSize = true;
+            this.checkBoxRomance.Location = new System.Drawing.Point(499, 236);
+            this.checkBoxRomance.Name = "checkBoxRomance";
+            this.checkBoxRomance.Size = new System.Drawing.Size(93, 24);
+            this.checkBoxRomance.TabIndex = 22;
+            this.checkBoxRomance.Text = "Romance";
+            this.checkBoxRomance.UseVisualStyleBackColor = true;
+            // 
+            // checkBoxMusical
+            // 
+            this.checkBoxMusical.AutoSize = true;
+            this.checkBoxMusical.Location = new System.Drawing.Point(616, 206);
+            this.checkBoxMusical.Name = "checkBoxMusical";
+            this.checkBoxMusical.Size = new System.Drawing.Size(81, 24);
+            this.checkBoxMusical.TabIndex = 21;
+            this.checkBoxMusical.Text = "Musical";
+            this.checkBoxMusical.UseVisualStyleBackColor = true;
+            // 
+            // checkBoxHorror
+            // 
+            this.checkBoxHorror.AutoSize = true;
+            this.checkBoxHorror.Location = new System.Drawing.Point(499, 206);
+            this.checkBoxHorror.Name = "checkBoxHorror";
+            this.checkBoxHorror.Size = new System.Drawing.Size(75, 24);
+            this.checkBoxHorror.TabIndex = 20;
+            this.checkBoxHorror.Text = "Horror";
+            this.checkBoxHorror.UseVisualStyleBackColor = true;
+            // 
+            // checkBoxFantasy
+            // 
+            this.checkBoxFantasy.AutoSize = true;
+            this.checkBoxFantasy.Location = new System.Drawing.Point(616, 176);
+            this.checkBoxFantasy.Name = "checkBoxFantasy";
+            this.checkBoxFantasy.Size = new System.Drawing.Size(79, 24);
+            this.checkBoxFantasy.TabIndex = 19;
+            this.checkBoxFantasy.Text = "Fantasy";
+            this.checkBoxFantasy.UseVisualStyleBackColor = true;
+            // 
+            // checkBoxDrama
+            // 
+            this.checkBoxDrama.AutoSize = true;
+            this.checkBoxDrama.Location = new System.Drawing.Point(499, 176);
+            this.checkBoxDrama.Name = "checkBoxDrama";
+            this.checkBoxDrama.Size = new System.Drawing.Size(76, 24);
+            this.checkBoxDrama.TabIndex = 18;
+            this.checkBoxDrama.Text = "Drama";
+            this.checkBoxDrama.UseVisualStyleBackColor = true;
+            // 
+            // checkBoxCrime
+            // 
+            this.checkBoxCrime.AutoSize = true;
+            this.checkBoxCrime.Location = new System.Drawing.Point(616, 146);
+            this.checkBoxCrime.Name = "checkBoxCrime";
+            this.checkBoxCrime.Size = new System.Drawing.Size(70, 24);
+            this.checkBoxCrime.TabIndex = 17;
+            this.checkBoxCrime.Text = "Crime";
+            this.checkBoxCrime.UseVisualStyleBackColor = true;
+            // 
+            // checkBoxComedy
+            // 
+            this.checkBoxComedy.AutoSize = true;
+            this.checkBoxComedy.Location = new System.Drawing.Point(499, 146);
+            this.checkBoxComedy.Name = "checkBoxComedy";
+            this.checkBoxComedy.Size = new System.Drawing.Size(86, 24);
+            this.checkBoxComedy.TabIndex = 16;
+            this.checkBoxComedy.Text = "Comedy";
+            this.checkBoxComedy.UseVisualStyleBackColor = true;
+            // 
+            // checkBoxBiography
+            // 
+            this.checkBoxBiography.AutoSize = true;
+            this.checkBoxBiography.Location = new System.Drawing.Point(616, 116);
+            this.checkBoxBiography.Name = "checkBoxBiography";
+            this.checkBoxBiography.Size = new System.Drawing.Size(99, 24);
+            this.checkBoxBiography.TabIndex = 15;
+            this.checkBoxBiography.Text = "Biography";
+            this.checkBoxBiography.UseVisualStyleBackColor = true;
+            // 
+            // checkBoxAnimation
+            // 
+            this.checkBoxAnimation.AutoSize = true;
+            this.checkBoxAnimation.Location = new System.Drawing.Point(499, 116);
+            this.checkBoxAnimation.Name = "checkBoxAnimation";
+            this.checkBoxAnimation.Size = new System.Drawing.Size(100, 24);
+            this.checkBoxAnimation.TabIndex = 14;
+            this.checkBoxAnimation.Text = "Animation";
+            this.checkBoxAnimation.UseVisualStyleBackColor = true;
+            // 
+            // checkBoxAdventure
+            // 
+            this.checkBoxAdventure.AutoSize = true;
+            this.checkBoxAdventure.Location = new System.Drawing.Point(616, 86);
+            this.checkBoxAdventure.Name = "checkBoxAdventure";
+            this.checkBoxAdventure.Size = new System.Drawing.Size(99, 24);
+            this.checkBoxAdventure.TabIndex = 13;
+            this.checkBoxAdventure.Text = "Adventure";
+            this.checkBoxAdventure.UseVisualStyleBackColor = true;
+            // 
+            // checkBoxAction
+            // 
+            this.checkBoxAction.AutoSize = true;
+            this.checkBoxAction.Location = new System.Drawing.Point(499, 86);
+            this.checkBoxAction.Name = "checkBoxAction";
+            this.checkBoxAction.Size = new System.Drawing.Size(74, 24);
+            this.checkBoxAction.TabIndex = 12;
+            this.checkBoxAction.Text = "Action";
+            this.checkBoxAction.UseVisualStyleBackColor = true;
+            // 
+            // txt_directorName
+            // 
+            this.txt_directorName.Location = new System.Drawing.Point(144, 214);
+            this.txt_directorName.Name = "txt_directorName";
+            this.txt_directorName.Size = new System.Drawing.Size(266, 27);
+            this.txt_directorName.TabIndex = 11;
+            // 
+            // label5
+            // 
+            this.label5.AutoSize = true;
+            this.label5.Location = new System.Drawing.Point(499, 42);
+            this.label5.Name = "label5";
+            this.label5.Size = new System.Drawing.Size(57, 20);
+            this.label5.TabIndex = 10;
+            this.label5.Text = "Genres:";
+            // 
+            // label4
+            // 
+            this.label4.AutoSize = true;
+            this.label4.Location = new System.Drawing.Point(17, 221);
+            this.label4.Name = "label4";
+            this.label4.Size = new System.Drawing.Size(66, 20);
+            this.label4.TabIndex = 9;
+            this.label4.Text = "Director:";
+            // 
             // label3
             // 
             this.label3.AutoSize = true;
@@ -101,7 +266,7 @@
             // 
             // button1
             // 
-            this.button1.Location = new System.Drawing.Point(166, 291);
+            this.button1.Location = new System.Drawing.Point(144, 293);
             this.button1.Name = "button1";
             this.button1.Size = new System.Drawing.Size(107, 41);
             this.button1.TabIndex = 7;
@@ -157,171 +322,6 @@
             this.returnBtnClick.Text = "<-- Return";
             this.returnBtnClick.UseVisualStyleBackColor = true;
             this.returnBtnClick.Click += new System.EventHandler(this.returnBtnClick_Click);
-            // 
-            // label4
-            // 
-            this.label4.AutoSize = true;
-            this.label4.Location = new System.Drawing.Point(17, 186);
-            this.label4.Name = "label4";
-            this.label4.Size = new System.Drawing.Size(66, 20);
-            this.label4.TabIndex = 9;
-            this.label4.Text = "Director:";
-            // 
-            // label5
-            // 
-            this.label5.AutoSize = true;
-            this.label5.Location = new System.Drawing.Point(499, 42);
-            this.label5.Name = "label5";
-            this.label5.Size = new System.Drawing.Size(57, 20);
-            this.label5.TabIndex = 10;
-            this.label5.Text = "Genres:";
-            // 
-            // txt_directorName
-            // 
-            this.txt_directorName.Location = new System.Drawing.Point(144, 186);
-            this.txt_directorName.Name = "txt_directorName";
-            this.txt_directorName.Size = new System.Drawing.Size(266, 27);
-            this.txt_directorName.TabIndex = 11;
-            // 
-            // checkBoxAction
-            // 
-            this.checkBoxAction.AutoSize = true;
-            this.checkBoxAction.Location = new System.Drawing.Point(499, 86);
-            this.checkBoxAction.Name = "checkBoxAction";
-            this.checkBoxAction.Size = new System.Drawing.Size(74, 24);
-            this.checkBoxAction.TabIndex = 12;
-            this.checkBoxAction.Text = "Action";
-            this.checkBoxAction.UseVisualStyleBackColor = true;
-            // 
-            // checkBoxAdventure
-            // 
-            this.checkBoxAdventure.AutoSize = true;
-            this.checkBoxAdventure.Location = new System.Drawing.Point(616, 86);
-            this.checkBoxAdventure.Name = "checkBoxAdventure";
-            this.checkBoxAdventure.Size = new System.Drawing.Size(99, 24);
-            this.checkBoxAdventure.TabIndex = 13;
-            this.checkBoxAdventure.Text = "Adventure";
-            this.checkBoxAdventure.UseVisualStyleBackColor = true;
-            // 
-            // checkBoxAnimation
-            // 
-            this.checkBoxAnimation.AutoSize = true;
-            this.checkBoxAnimation.Location = new System.Drawing.Point(499, 116);
-            this.checkBoxAnimation.Name = "checkBoxAnimation";
-            this.checkBoxAnimation.Size = new System.Drawing.Size(100, 24);
-            this.checkBoxAnimation.TabIndex = 14;
-            this.checkBoxAnimation.Text = "Animation";
-            this.checkBoxAnimation.UseVisualStyleBackColor = true;
-            // 
-            // checkBoxBiography
-            // 
-            this.checkBoxBiography.AutoSize = true;
-            this.checkBoxBiography.Location = new System.Drawing.Point(616, 116);
-            this.checkBoxBiography.Name = "checkBoxBiography";
-            this.checkBoxBiography.Size = new System.Drawing.Size(99, 24);
-            this.checkBoxBiography.TabIndex = 15;
-            this.checkBoxBiography.Text = "Biography";
-            this.checkBoxBiography.UseVisualStyleBackColor = true;
-            // 
-            // checkBoxComedy
-            // 
-            this.checkBoxComedy.AutoSize = true;
-            this.checkBoxComedy.Location = new System.Drawing.Point(499, 146);
-            this.checkBoxComedy.Name = "checkBoxComedy";
-            this.checkBoxComedy.Size = new System.Drawing.Size(86, 24);
-            this.checkBoxComedy.TabIndex = 16;
-            this.checkBoxComedy.Text = "Comedy";
-            this.checkBoxComedy.UseVisualStyleBackColor = true;
-            // 
-            // checkBoxCrime
-            // 
-            this.checkBoxCrime.AutoSize = true;
-            this.checkBoxCrime.Location = new System.Drawing.Point(616, 146);
-            this.checkBoxCrime.Name = "checkBoxCrime";
-            this.checkBoxCrime.Size = new System.Drawing.Size(70, 24);
-            this.checkBoxCrime.TabIndex = 17;
-            this.checkBoxCrime.Text = "Crime";
-            this.checkBoxCrime.UseVisualStyleBackColor = true;
-            // 
-            // checkBoxDrama
-            // 
-            this.checkBoxDrama.AutoSize = true;
-            this.checkBoxDrama.Location = new System.Drawing.Point(499, 176);
-            this.checkBoxDrama.Name = "checkBoxDrama";
-            this.checkBoxDrama.Size = new System.Drawing.Size(76, 24);
-            this.checkBoxDrama.TabIndex = 18;
-            this.checkBoxDrama.Text = "Drama";
-            this.checkBoxDrama.UseVisualStyleBackColor = true;
-            // 
-            // checkBoxFantasy
-            // 
-            this.checkBoxFantasy.AutoSize = true;
-            this.checkBoxFantasy.Location = new System.Drawing.Point(616, 176);
-            this.checkBoxFantasy.Name = "checkBoxFantasy";
-            this.checkBoxFantasy.Size = new System.Drawing.Size(79, 24);
-            this.checkBoxFantasy.TabIndex = 19;
-            this.checkBoxFantasy.Text = "Fantasy";
-            this.checkBoxFantasy.UseVisualStyleBackColor = true;
-            // 
-            // checkBoxHorror
-            // 
-            this.checkBoxHorror.AutoSize = true;
-            this.checkBoxHorror.Location = new System.Drawing.Point(499, 206);
-            this.checkBoxHorror.Name = "checkBoxHorror";
-            this.checkBoxHorror.Size = new System.Drawing.Size(75, 24);
-            this.checkBoxHorror.TabIndex = 20;
-            this.checkBoxHorror.Text = "Horror";
-            this.checkBoxHorror.UseVisualStyleBackColor = true;
-            // 
-            // checkBoxMusical
-            // 
-            this.checkBoxMusical.AutoSize = true;
-            this.checkBoxMusical.Location = new System.Drawing.Point(616, 206);
-            this.checkBoxMusical.Name = "checkBoxMusical";
-            this.checkBoxMusical.Size = new System.Drawing.Size(81, 24);
-            this.checkBoxMusical.TabIndex = 21;
-            this.checkBoxMusical.Text = "Musical";
-            this.checkBoxMusical.UseVisualStyleBackColor = true;
-            // 
-            // checkBoxRomance
-            // 
-            this.checkBoxRomance.AutoSize = true;
-            this.checkBoxRomance.Location = new System.Drawing.Point(499, 236);
-            this.checkBoxRomance.Name = "checkBoxRomance";
-            this.checkBoxRomance.Size = new System.Drawing.Size(93, 24);
-            this.checkBoxRomance.TabIndex = 22;
-            this.checkBoxRomance.Text = "Romance";
-            this.checkBoxRomance.UseVisualStyleBackColor = true;
-            // 
-            // checkBoxSciFi
-            // 
-            this.checkBoxSciFi.AutoSize = true;
-            this.checkBoxSciFi.Location = new System.Drawing.Point(616, 236);
-            this.checkBoxSciFi.Name = "checkBoxSciFi";
-            this.checkBoxSciFi.Size = new System.Drawing.Size(67, 24);
-            this.checkBoxSciFi.TabIndex = 23;
-            this.checkBoxSciFi.Text = "Sci-Fi";
-            this.checkBoxSciFi.UseVisualStyleBackColor = true;
-            // 
-            // checkBoxThriller
-            // 
-            this.checkBoxThriller.AutoSize = true;
-            this.checkBoxThriller.Location = new System.Drawing.Point(499, 266);
-            this.checkBoxThriller.Name = "checkBoxThriller";
-            this.checkBoxThriller.Size = new System.Drawing.Size(77, 24);
-            this.checkBoxThriller.TabIndex = 24;
-            this.checkBoxThriller.Text = "Thriller";
-            this.checkBoxThriller.UseVisualStyleBackColor = true;
-            // 
-            // checkBoxWar
-            // 
-            this.checkBoxWar.AutoSize = true;
-            this.checkBoxWar.Location = new System.Drawing.Point(616, 266);
-            this.checkBoxWar.Name = "checkBoxWar";
-            this.checkBoxWar.Size = new System.Drawing.Size(57, 24);
-            this.checkBoxWar.TabIndex = 25;
-            this.checkBoxWar.Text = "War";
-            this.checkBoxWar.UseVisualStyleBackColor = true;
             // 
             // AddMovies
             // 
