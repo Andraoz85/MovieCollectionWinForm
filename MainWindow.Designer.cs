@@ -39,6 +39,7 @@
             this.label2 = new System.Windows.Forms.Label();
             this.dataGridView4 = new System.Windows.Forms.DataGridView();
             this.btn_deleteMovie = new System.Windows.Forms.Button();
+            this.btn_updateMovie = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView2)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView3)).BeginInit();
@@ -153,11 +154,22 @@
             this.btn_deleteMovie.UseVisualStyleBackColor = true;
             this.btn_deleteMovie.Click += new System.EventHandler(this.btn_deleteMovie_Click);
             // 
+            // btn_updateMovie
+            // 
+            this.btn_updateMovie.Location = new System.Drawing.Point(717, 148);
+            this.btn_updateMovie.Name = "btn_updateMovie";
+            this.btn_updateMovie.Size = new System.Drawing.Size(133, 55);
+            this.btn_updateMovie.TabIndex = 13;
+            this.btn_updateMovie.Text = "Update Selected Movie";
+            this.btn_updateMovie.UseVisualStyleBackColor = true;
+            this.btn_updateMovie.Click += new System.EventHandler(this.btn_updateMovie_Click);
+            // 
             // MainWindow
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 20F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(1278, 634);
+            this.Controls.Add(this.btn_updateMovie);
             this.Controls.Add(this.btn_deleteMovie);
             this.Controls.Add(this.dataGridView4);
             this.Controls.Add(this.label2);
@@ -194,5 +206,6 @@
         private Label label2;
         private DataGridView dataGridView4;
         private Button btn_deleteMovie;
+        private Button btn_updateMovie;
     }
 }

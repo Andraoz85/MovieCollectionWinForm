@@ -41,10 +41,6 @@ namespace MovieCollectionWinForm
             {
                 MessageBox.Show(ex.Message);
             }
-
-
-
-
             return returnThese;
         }
 
@@ -54,55 +50,69 @@ namespace MovieCollectionWinForm
             //start with an empty list
             List<Movie> returnThese = new List<Movie>();
 
-            //connect to the mysql server
-            MySqlConnection connection = new MySqlConnection(connectionString);
-            connection.Open();
-
-            string searchWildPhrase = "%" + searchTerm + "%";
-
-            //define the sql statement to fetch all movies
-            MySqlCommand command = new MySqlCommand();
-            command.CommandText = "SELECT * FROM movies WHERE title LIKE @search";
-            command.Parameters.AddWithValue("@search", searchWildPhrase);
-            command.Connection = connection;
-
-            using (MySqlDataReader reader = command.ExecuteReader())
+            try
             {
-                while (reader.Read())
+                //connect to the mysql server
+                MySqlConnection connection = new MySqlConnection(connectionString);
+                connection.Open();
+
+                string searchWildPhrase = "%" + searchTerm + "%";
+
+                //define the sql statement to fetch all movies
+                MySqlCommand command = new MySqlCommand();
+                command.CommandText = "SELECT * FROM movies WHERE title LIKE @search";
+                command.Parameters.AddWithValue("@search", searchWildPhrase);
+                command.Connection = connection;
+
+                using (MySqlDataReader reader = command.ExecuteReader())
                 {
-                    Movie m = new Movie
+                    while (reader.Read())
                     {
-                        ID = reader.GetInt32(0),
-                        MovieTitle = reader.GetString(1),
-                        MovieYear = reader.GetInt32(2),
-                        MovieRating = reader.GetFloat(3)
-                    };
-                    returnThese.Add(m);
+                        Movie m = new Movie
+                        {
+                            ID = reader.GetInt32(0),
+                            MovieTitle = reader.GetString(1),
+                            MovieYear = reader.GetInt32(2),
+                            MovieRating = reader.GetFloat(3)
+                        };
+                        returnThese.Add(m);
+                    }
                 }
+                connection.Close();
+
             }
-            connection.Close();
+            catch (MySqlException ex)
+            {
+                MessageBox.Show("An error occurred: " + ex.Message);
 
-
+            }
             return returnThese;
         }
 
         public int addOneMovie(Movie movie)
         {
-            //connect to the mysql server
-            MySqlConnection connection = new MySqlConnection(connectionString);
-            connection.Open();
+            int newRows = 0;
+            try
+            {
+                //connect to the mysql server
+                MySqlConnection connection = new MySqlConnection(connectionString);
+                connection.Open();
 
-            //define the sql statement to fetch all movies
-            MySqlCommand command = new MySqlCommand("INSERT INTO movies (title,year,imdb_rating) VALUES (@movietitle, @releaseyear, @imdbrating)", connection);
+                //define the sql statement to fetch all movies
+                MySqlCommand command = new MySqlCommand("INSERT INTO movies (title,year,imdb_rating) VALUES (@movietitle, @releaseyear, @imdbrating)", connection);
 
-            command.Parameters.AddWithValue("@movietitle", movie.MovieTitle);
-            command.Parameters.AddWithValue("@releaseyear", movie.MovieYear);
-            command.Parameters.AddWithValue("@imdbrating", movie.MovieRating);
+                command.Parameters.AddWithValue("@movietitle", movie.MovieTitle);
+                command.Parameters.AddWithValue("@releaseyear", movie.MovieYear);
+                command.Parameters.AddWithValue("@imdbrating", movie.MovieRating);
 
-            int newRows = command.ExecuteNonQuery();
-            connection.Close();
+                newRows = command.ExecuteNonQuery();
+                connection.Close();
+            }
+            catch (MySqlException ex)
+            {
+                MessageBox.Show("An error occurred: " + ex.Message);
 
-
+            }
             return newRows;
         }
 
@@ -112,117 +122,157 @@ namespace MovieCollectionWinForm
             //start with an empty list
             List<Actor> returnThese = new List<Actor>();
 
-            //connect to the mysql server
-            MySqlConnection connection = new MySqlConnection(connectionString);
-            connection.Open();
-
-            MySqlCommand command = new MySqlCommand();
-
-            command.CommandText = "SELECT * FROM mha WHERE id = @id";
-            command.Parameters.AddWithValue("@id", id);
-            command.Connection = connection;
-
-            using (MySqlDataReader reader = command.ExecuteReader())
+            try
             {
-                while (reader.Read())
+                //connect to the mysql server
+                MySqlConnection connection = new MySqlConnection(connectionString);
+                connection.Open();
+
+                MySqlCommand command = new MySqlCommand();
+
+                command.CommandText = "SELECT * FROM mha WHERE id = @id";
+                command.Parameters.AddWithValue("@id", id);
+                command.Connection = connection;
+
+                using (MySqlDataReader reader = command.ExecuteReader())
                 {
-                    Actor actor = new Actor
+                    while (reader.Read())
                     {
-                        ID = reader.GetInt32(0),
-                        Name = reader.GetString(1)
-                    };
-                    returnThese.Add(actor);
+                        Actor actor = new Actor
+                        {
+                            ID = reader.GetInt32(0),
+                            Name = reader.GetString(1)
+                        };
+                        returnThese.Add(actor);
+                    }
                 }
+                connection.Close();
             }
-            connection.Close();
-
-
+            catch (MySqlException ex)
+            {
+                MessageBox.Show("An error occurred: " + ex.Message);
+            }
             return returnThese;
         }
 
         public List<Genre> getGenreForMovie(int genreID)
         {
-            //start with an empty list
             List<Genre> returnThese = new List<Genre>();
 
-            //connect to the mysql server
-            MySqlConnection connection = new MySqlConnection(connectionString);
-            connection.Open();
-
-            //define the sql statement to fetch all genres
-            MySqlCommand command = new MySqlCommand();
-            command.CommandText = "SELECT * FROM movie_genres WHERE id = @genreID";
-            command.Parameters.AddWithValue("@genreID", genreID);
-            command.Connection = connection;
-
-            using (MySqlDataReader reader = command.ExecuteReader())
+            try
             {
-                while (reader.Read())
+                MySqlConnection connection = new MySqlConnection(connectionString);
+                connection.Open();
+
+                MySqlCommand command = new MySqlCommand();
+                command.CommandText = "SELECT * FROM movie_genres WHERE id = @genreID";
+                command.Parameters.AddWithValue("@genreID", genreID);
+                command.Connection = connection;
+
+                using (MySqlDataReader reader = command.ExecuteReader())
                 {
-                    Genre g = new Genre
+                    while (reader.Read())
                     {
-                        ID = reader.GetInt32(0),
-                        Name = reader.GetString(1)
-                    };
-                    returnThese.Add(g);
+                        Genre g = new Genre
+                        {
+                            ID = reader.GetInt32(0),
+                            Name = reader.GetString(1)
+                        };
+                        returnThese.Add(g);
+                    }
                 }
+                connection.Close();
             }
-            connection.Close();
-
-
+            catch (MySqlException ex)
+            {
+                MessageBox.Show("An error occurred: " + ex.Message);
+            }
             return returnThese;
         }
 
         public List<Director> getDirectorForMovie(int directorID)
         {
-            //start with an empty list
             List<Director> returnThese = new List<Director>();
 
-            //connect to the mysql server
-            MySqlConnection connection = new MySqlConnection(connectionString);
-            connection.Open();
-
-            //define the sql statement to fetch all movies
-            MySqlCommand command = new MySqlCommand();
-            command.CommandText = "SELECT * FROM movie_directors WHERE id = @directorID";
-            command.Parameters.AddWithValue("@directorID", directorID);
-            command.Connection = connection;
-
-            using (MySqlDataReader reader = command.ExecuteReader())
+            try
             {
-                while (reader.Read())
+                MySqlConnection connection = new MySqlConnection(connectionString);
+                connection.Open();
+
+                //define the sql statement to fetch all movies
+                MySqlCommand command = new MySqlCommand();
+                command.CommandText = "SELECT * FROM movie_directors WHERE id = @directorID";
+                command.Parameters.AddWithValue("@directorID", directorID);
+                command.Connection = connection;
+
+                using (MySqlDataReader reader = command.ExecuteReader())
                 {
-                    Director d = new Director
+                    while (reader.Read())
                     {
-                        ID = reader.GetInt32(0),
-                        Name = reader.GetString(1)
-                    };
-                    returnThese.Add(d);
+                        Director d = new Director
+                        {
+                            ID = reader.GetInt32(0),
+                            Name = reader.GetString(1)
+                        };
+                        returnThese.Add(d);
+                    }
                 }
+                connection.Close();
             }
-            connection.Close();
-
-
+            catch (MySqlException ex)
+            {
+                MessageBox.Show("An error occurred: " + ex.Message);
+            }
             return returnThese;
         }
 
-        internal int DeleteMovie(int movieID)
+        internal int deleteMovie(int movieID)
         {
-            //connect to the mysql server
-            MySqlConnection connection = new MySqlConnection(connectionString);
-            connection.Open();
+            int result = 0;
+            try
+            {
+                MySqlConnection connection = new MySqlConnection(connectionString);
+                connection.Open();
 
-            //define the sql statement to fetch all movies
-            MySqlCommand command = new MySqlCommand("DELETE FROM movies WHERE id = @movieID", connection);
+                MySqlCommand command = new MySqlCommand("DELETE FROM movies WHERE id = @movieID", connection);
+                command.Parameters.AddWithValue("@movieID", movieID);
 
-            command.Parameters.AddWithValue("@movieID", movieID);
-
-            int result = command.ExecuteNonQuery();
-            connection.Close();
-
-
+                result = command.ExecuteNonQuery();
+                connection.Close();
+            }
+            catch (MySqlException ex)
+            {
+                MessageBox.Show("An error occurred: " + ex.Message);
+            }
             return result;
         }
+
+        internal int updateMovie(Movie newMovie, int updateMovieID)
+        {
+            int updatedRows = 0;
+
+            try
+            {
+                MySqlConnection connection = new MySqlConnection(connectionString);
+                connection.Open();
+
+                MySqlCommand command = new MySqlCommand("UPDATE movies SET title = @title, year = @year, imdb_rating = @imdb_rating WHERE id = @updateMovieID;", connection);
+
+                command.Parameters.AddWithValue("@updateMovieID", updateMovieID);
+                command.Parameters.AddWithValue("@title", newMovie.MovieTitle);
+                command.Parameters.AddWithValue("@year", newMovie.MovieYear);
+                command.Parameters.AddWithValue("@imdb_rating", newMovie.MovieRating);
+
+                updatedRows = command.ExecuteNonQuery();
+                connection.Close();
+            }
+            catch (MySqlException ex)
+            {
+                MessageBox.Show("An error occurred: " + ex.Message);
+            }
+            return updatedRows;
+        }
+
     }
 
 }

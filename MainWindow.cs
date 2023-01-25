@@ -1,3 +1,5 @@
+using MySql.Data.MySqlClient;
+
 namespace MovieCollectionWinForm
 {
     public partial class MainWindow : Form
@@ -6,6 +8,8 @@ namespace MovieCollectionWinForm
         BindingSource actorBindingSource = new BindingSource();
         BindingSource genreBindingSource = new BindingSource();
         BindingSource directorBindingSource = new BindingSource();
+
+        Movie movies = new Movie();
 
 
         public MainWindow()
@@ -22,7 +26,6 @@ namespace MovieCollectionWinForm
             movieBindingSource.DataSource = moviesDAO.getAllMovies();
 
             dataGridView1.DataSource = movieBindingSource;
-
         }
 
         private void searchMovies_click(object sender, EventArgs e)
@@ -63,15 +66,51 @@ namespace MovieCollectionWinForm
         private void btn_deleteMovie_Click(object sender, EventArgs e)
         {
             int rowClicked = dataGridView1.CurrentRow.Index;
-            MessageBox.Show("You clicked row " + rowClicked);
             int movieID = (int)dataGridView1.Rows[rowClicked].Cells[0].Value;
-            MessageBox.Show("Movie ID: " + movieID + " has been deleted");
+            MessageBox.Show("Movie ID: " + movieID + " will be deleted");
 
-            MoviesDAO moviesDAO = new MoviesDAO();
+            try
+            {
+                MoviesDAO moviesDAO = new MoviesDAO();
+                int result = moviesDAO.deleteMovie(movieID);
+                MessageBox.Show("Result " + result);
+            }
+            catch (MySqlException ex)
+            {
+                MessageBox.Show("An error occurred: " + ex.Message);
+            }
 
-            int result = moviesDAO.DeleteMovie(movieID);
-            MessageBox.Show("Result " + result);
+        }
 
+        private void btn_updateMovie_Click(object sender, EventArgs e)
+        {
+            if (dataGridView1.CurrentRow != null)
+            {
+                int rowClicked = dataGridView1.CurrentRow.Index;
+                int updateMovieID = (int)dataGridView1.Rows[rowClicked].Cells[0].Value;
+                MessageBox.Show("Movie ID: " + updateMovieID + " will be updated");
+
+                Movie newMovie = new Movie();
+                newMovie.ID = updateMovieID;
+                newMovie.MovieTitle = dataGridView1.Rows[rowClicked].Cells[1].Value.ToString();
+                newMovie.MovieYear = int.Parse(dataGridView1.Rows[rowClicked].Cells[2].Value.ToString());
+                newMovie.MovieRating = float.Parse(dataGridView1.Rows[rowClicked].Cells[3].Value.ToString());
+
+                try
+                {
+                    MoviesDAO moviesDAO = new MoviesDAO();
+                    int result = moviesDAO.updateMovie(newMovie, updateMovieID);
+                    MessageBox.Show("Result " + result);
+                }
+                catch (MySqlException ex)
+                {
+                    MessageBox.Show("An error occurred: " + ex.Message);
+                }
+            }
+            else
+            {
+                MessageBox.Show("Please select a row to update");
+            }
         }
     }
 }
