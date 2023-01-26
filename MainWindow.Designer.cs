@@ -40,6 +40,7 @@
             this.dataGridView4 = new System.Windows.Forms.DataGridView();
             this.btn_deleteMovie = new System.Windows.Forms.Button();
             this.btn_updateMovie = new System.Windows.Forms.Button();
+            this.label3 = new System.Windows.Forms.Label();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView2)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView3)).BeginInit();
@@ -63,7 +64,7 @@
             this.dataGridView1.Name = "dataGridView1";
             this.dataGridView1.RowHeadersWidth = 51;
             this.dataGridView1.RowTemplate.Height = 29;
-            this.dataGridView1.Size = new System.Drawing.Size(699, 176);
+            this.dataGridView1.Size = new System.Drawing.Size(560, 159);
             this.dataGridView1.TabIndex = 1;
             this.dataGridView1.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dataGridView1_CellContentClick);
             // 
@@ -73,7 +74,7 @@
             this.button2.Name = "button2";
             this.button2.Size = new System.Drawing.Size(200, 41);
             this.button2.TabIndex = 2;
-            this.button2.Text = "Search";
+            this.button2.Text = "Search Movie";
             this.button2.UseVisualStyleBackColor = true;
             this.button2.Click += new System.EventHandler(this.searchMovies_click);
             // 
@@ -86,19 +87,21 @@
             // 
             // button3
             // 
-            this.button3.Location = new System.Drawing.Point(1058, 18);
+            this.button3.BackColor = System.Drawing.SystemColors.GradientActiveCaption;
+            this.button3.ForeColor = System.Drawing.SystemColors.ActiveCaptionText;
+            this.button3.Location = new System.Drawing.Point(629, 532);
             this.button3.Name = "button3";
             this.button3.Size = new System.Drawing.Size(208, 59);
             this.button3.TabIndex = 6;
             this.button3.Text = "Add Movie";
-            this.button3.UseVisualStyleBackColor = true;
+            this.button3.UseVisualStyleBackColor = false;
             this.button3.Click += new System.EventHandler(this.button3_Click);
             // 
             // label1
             // 
             this.label1.AutoSize = true;
             this.label1.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            this.label1.Location = new System.Drawing.Point(12, 264);
+            this.label1.Location = new System.Drawing.Point(12, 237);
             this.label1.Name = "label1";
             this.label1.Size = new System.Drawing.Size(68, 28);
             this.label1.TabIndex = 7;
@@ -107,28 +110,28 @@
             // dataGridView2
             // 
             this.dataGridView2.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dataGridView2.Location = new System.Drawing.Point(12, 295);
+            this.dataGridView2.Location = new System.Drawing.Point(12, 268);
             this.dataGridView2.Name = "dataGridView2";
             this.dataGridView2.RowHeadersWidth = 51;
             this.dataGridView2.RowTemplate.Height = 29;
-            this.dataGridView2.Size = new System.Drawing.Size(493, 174);
+            this.dataGridView2.Size = new System.Drawing.Size(325, 137);
             this.dataGridView2.TabIndex = 8;
             // 
             // dataGridView3
             // 
             this.dataGridView3.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dataGridView3.Location = new System.Drawing.Point(12, 506);
+            this.dataGridView3.Location = new System.Drawing.Point(16, 454);
             this.dataGridView3.Name = "dataGridView3";
             this.dataGridView3.RowHeadersWidth = 51;
             this.dataGridView3.RowTemplate.Height = 29;
-            this.dataGridView3.Size = new System.Drawing.Size(493, 116);
+            this.dataGridView3.Size = new System.Drawing.Size(321, 134);
             this.dataGridView3.TabIndex = 9;
             // 
             // label2
             // 
             this.label2.AutoSize = true;
             this.label2.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            this.label2.Location = new System.Drawing.Point(16, 475);
+            this.label2.Location = new System.Drawing.Point(16, 423);
             this.label2.Name = "label2";
             this.label2.Size = new System.Drawing.Size(64, 28);
             this.label2.TabIndex = 10;
@@ -137,16 +140,16 @@
             // dataGridView4
             // 
             this.dataGridView4.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dataGridView4.Location = new System.Drawing.Point(538, 295);
+            this.dataGridView4.Location = new System.Drawing.Point(343, 268);
             this.dataGridView4.Name = "dataGridView4";
             this.dataGridView4.RowHeadersWidth = 51;
             this.dataGridView4.RowTemplate.Height = 29;
-            this.dataGridView4.Size = new System.Drawing.Size(399, 174);
+            this.dataGridView4.Size = new System.Drawing.Size(308, 102);
             this.dataGridView4.TabIndex = 11;
             // 
             // btn_deleteMovie
             // 
-            this.btn_deleteMovie.Location = new System.Drawing.Point(717, 75);
+            this.btn_deleteMovie.Location = new System.Drawing.Point(578, 97);
             this.btn_deleteMovie.Name = "btn_deleteMovie";
             this.btn_deleteMovie.Size = new System.Drawing.Size(133, 56);
             this.btn_deleteMovie.TabIndex = 12;
@@ -156,7 +159,7 @@
             // 
             // btn_updateMovie
             // 
-            this.btn_updateMovie.Location = new System.Drawing.Point(717, 148);
+            this.btn_updateMovie.Location = new System.Drawing.Point(578, 159);
             this.btn_updateMovie.Name = "btn_updateMovie";
             this.btn_updateMovie.Size = new System.Drawing.Size(133, 55);
             this.btn_updateMovie.TabIndex = 13;
@@ -164,11 +167,23 @@
             this.btn_updateMovie.UseVisualStyleBackColor = true;
             this.btn_updateMovie.Click += new System.EventHandler(this.btn_updateMovie_Click);
             // 
+            // label3
+            // 
+            this.label3.AutoSize = true;
+            this.label3.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+            this.label3.Location = new System.Drawing.Point(343, 237);
+            this.label3.Name = "label3";
+            this.label3.Size = new System.Drawing.Size(83, 28);
+            this.label3.TabIndex = 14;
+            this.label3.Text = "Director";
+            // 
             // MainWindow
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 20F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(1278, 634);
+            this.BackColor = System.Drawing.Color.DarkTurquoise;
+            this.ClientSize = new System.Drawing.Size(849, 603);
+            this.Controls.Add(this.label3);
             this.Controls.Add(this.btn_updateMovie);
             this.Controls.Add(this.btn_deleteMovie);
             this.Controls.Add(this.dataGridView4);
@@ -207,5 +222,6 @@
         private DataGridView dataGridView4;
         private Button btn_deleteMovie;
         private Button btn_updateMovie;
+        private Label label3;
     }
 }
