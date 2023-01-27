@@ -1,4 +1,5 @@
 ﻿using MySql.Data.MySqlClient;
+using System.Data;
 
 namespace MovieCollectionWinForm
 {
@@ -89,23 +90,33 @@ namespace MovieCollectionWinForm
             return returnThese;
         }
 
-        public int addOneMovie(Movie movie)
+        public int addOneMovie(Movie movie, Director director, Actor actor, List<string> genres)
         {
             int newRows = 0;
             try
             {
+                AddMovies addMovies = new AddMovies();
+
                 //connect to the mysql server
                 MySqlConnection connection = new MySqlConnection(connectionString);
                 connection.Open();
 
                 //define the sql statement to fetch all movies
-                MySqlCommand command = new MySqlCommand("INSERT INTO movies (title,year,imdb_rating) VALUES (@movietitle, @releaseyear, @imdbrating)", connection);
+                MySqlCommand command = new MySqlCommand("insert_movie_info", connection);
+                command.CommandType = CommandType.StoredProcedure;
 
-                command.Parameters.AddWithValue("@movietitle", movie.MovieTitle);
-                command.Parameters.AddWithValue("@releaseyear", movie.MovieYear);
-                command.Parameters.AddWithValue("@imdbrating", movie.MovieRating);
+                command.Parameters.AddWithValue("@movie_title", movie.MovieTitle);
+                command.Parameters.AddWithValue("@movie_year", movie.MovieYear);
+                command.Parameters.AddWithValue("@imdb_rating", movie.MovieRating);
+                command.Parameters.AddWithValue("actor_name", actor.Name);
+                command.Parameters.AddWithValue("director_name", director.Name);
+                foreach (string genre in genres)
+                {
+                    command.Parameters.AddWithValue("genre_name", genre);
+                }
 
                 newRows = command.ExecuteNonQuery();
+                MessageBox.Show("Success! One new movie added!");
                 connection.Close();
             }
             catch (MySqlException ex)

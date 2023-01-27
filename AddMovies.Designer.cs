@@ -54,11 +54,15 @@
             this.label2 = new System.Windows.Forms.Label();
             this.label1 = new System.Windows.Forms.Label();
             this.returnBtnClick = new System.Windows.Forms.Button();
+            this.label6 = new System.Windows.Forms.Label();
+            this.txt_actorName = new System.Windows.Forms.TextBox();
             this.groupBox1.SuspendLayout();
             this.SuspendLayout();
             // 
             // groupBox1
             // 
+            this.groupBox1.Controls.Add(this.txt_actorName);
+            this.groupBox1.Controls.Add(this.label6);
             this.groupBox1.Controls.Add(this.checkBoxWar);
             this.groupBox1.Controls.Add(this.checkBoxThriller);
             this.groupBox1.Controls.Add(this.checkBoxSciFi);
@@ -77,7 +81,6 @@
             this.groupBox1.Controls.Add(this.label5);
             this.groupBox1.Controls.Add(this.label4);
             this.groupBox1.Controls.Add(this.label3);
-            this.groupBox1.Controls.Add(this.button1);
             this.groupBox1.Controls.Add(this.txt_imdbRating);
             this.groupBox1.Controls.Add(this.txt_releaseYear);
             this.groupBox1.Controls.Add(this.txt_movieName);
@@ -232,7 +235,7 @@
             // 
             // txt_directorName
             // 
-            this.txt_directorName.Location = new System.Drawing.Point(144, 214);
+            this.txt_directorName.Location = new System.Drawing.Point(144, 203);
             this.txt_directorName.Name = "txt_directorName";
             this.txt_directorName.Size = new System.Drawing.Size(266, 27);
             this.txt_directorName.TabIndex = 11;
@@ -249,7 +252,7 @@
             // label4
             // 
             this.label4.AutoSize = true;
-            this.label4.Location = new System.Drawing.Point(17, 221);
+            this.label4.Location = new System.Drawing.Point(17, 206);
             this.label4.Name = "label4";
             this.label4.Size = new System.Drawing.Size(66, 20);
             this.label4.TabIndex = 9;
@@ -266,9 +269,9 @@
             // 
             // button1
             // 
-            this.button1.Location = new System.Drawing.Point(144, 293);
+            this.button1.Location = new System.Drawing.Point(478, 390);
             this.button1.Name = "button1";
-            this.button1.Size = new System.Drawing.Size(107, 41);
+            this.button1.Size = new System.Drawing.Size(119, 48);
             this.button1.TabIndex = 7;
             this.button1.Text = "Add";
             this.button1.UseVisualStyleBackColor = true;
@@ -323,6 +326,22 @@
             this.returnBtnClick.UseVisualStyleBackColor = true;
             this.returnBtnClick.Click += new System.EventHandler(this.returnBtnClick_Click);
             // 
+            // label6
+            // 
+            this.label6.AutoSize = true;
+            this.label6.Location = new System.Drawing.Point(17, 254);
+            this.label6.Name = "label6";
+            this.label6.Size = new System.Drawing.Size(48, 20);
+            this.label6.TabIndex = 26;
+            this.label6.Text = "Actor:";
+            // 
+            // txt_actorName
+            // 
+            this.txt_actorName.Location = new System.Drawing.Point(144, 251);
+            this.txt_actorName.Name = "txt_actorName";
+            this.txt_actorName.Size = new System.Drawing.Size(266, 27);
+            this.txt_actorName.TabIndex = 27;
+            // 
             // AddMovies
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 20F);
@@ -331,6 +350,7 @@
             this.ClientSize = new System.Drawing.Size(800, 450);
             this.Controls.Add(this.returnBtnClick);
             this.Controls.Add(this.groupBox1);
+            this.Controls.Add(this.button1);
             this.Name = "AddMovies";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "AddMovies";
@@ -342,31 +362,33 @@
 
         #endregion
 
-        private GroupBox groupBox1;
-        private Label label1;
-        private Button button1;
-        private TextBox txt_imdbRating;
-        private TextBox txt_releaseYear;
-        private TextBox txt_movieName;
-        private Label label2;
-        private Label label3;
-        private Button returnBtnClick;
-        private CheckBox checkBoxWar;
-        private CheckBox checkBoxThriller;
-        private CheckBox checkBoxSciFi;
-        private CheckBox checkBoxRomance;
-        private CheckBox checkBoxMusical;
-        private CheckBox checkBoxHorror;
-        private CheckBox checkBoxFantasy;
-        private CheckBox checkBoxDrama;
-        private CheckBox checkBoxCrime;
-        private CheckBox checkBoxComedy;
-        private CheckBox checkBoxBiography;
-        private CheckBox checkBoxAnimation;
-        private CheckBox checkBoxAdventure;
-        private CheckBox checkBoxAction;
-        private TextBox txt_directorName;
-        private Label label5;
-        private Label label4;
+        public GroupBox groupBox1;
+        public Label label1;
+        public Button button1;
+        public TextBox txt_imdbRating;
+        public TextBox txt_releaseYear;
+        public TextBox txt_movieName;
+        public Label label2;
+        public Label label3;
+        public Button returnBtnClick;
+        public CheckBox checkBoxWar;
+        public CheckBox checkBoxThriller;
+        public CheckBox checkBoxSciFi;
+        public CheckBox checkBoxRomance;
+        public CheckBox checkBoxMusical;
+        public CheckBox checkBoxHorror;
+        public CheckBox checkBoxFantasy;
+        public CheckBox checkBoxDrama;
+        public CheckBox checkBoxCrime;
+        public CheckBox checkBoxComedy;
+        public CheckBox checkBoxBiography;
+        public CheckBox checkBoxAnimation;
+        public CheckBox checkBoxAdventure;
+        public CheckBox checkBoxAction;
+        public TextBox txt_directorName;
+        public Label label5;
+        public Label label4;
+        public TextBox txt_actorName;
+        public Label label6;
     }
 }
